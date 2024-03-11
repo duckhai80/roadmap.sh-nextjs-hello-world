@@ -13,7 +13,11 @@ function Home(props) {
       <h1>Home Page</h1>
       <Link href="/blog">Blog</Link>
       <Link href="/product">Product</Link>
+      <Link href="/users">Users</Link>
+      <Link href="/posts">Posts</Link>
       <button onClick={handleClick}>Place order</button>
+
+      <h1>Next JS pre-rendering</h1>
     </div>
   );
 }
