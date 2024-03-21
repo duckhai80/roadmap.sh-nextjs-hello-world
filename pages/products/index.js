@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 function ProductList({ products }) {
   return (
     <>
@@ -19,6 +17,7 @@ function ProductList({ products }) {
 export default ProductList;
 
 export async function getStaticProps() {
+  console.log("Generating/Regenerating ProductList");
   const response = await fetch("http://localhost:4000/products");
   const data = await response.json();
 
@@ -26,5 +25,6 @@ export async function getStaticProps() {
     props: {
       products: data,
     },
+    revalidate: 30,
   };
 }

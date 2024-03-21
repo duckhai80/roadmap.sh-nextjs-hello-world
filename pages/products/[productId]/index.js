@@ -27,7 +27,7 @@ export async function getStaticProps(context) {
   );
   const data = await response.json();
 
-  return { props: { product: data } };
+  return { props: { product: data }, revalidate: 10 };
 }
 
 export async function getStaticPaths() {
