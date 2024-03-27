@@ -1,4 +1,4 @@
-function user({ user }) {
+function User({ user }) {
   return (
     <>
       <p>{user.name}</p>
@@ -7,4 +7,4 @@ function user({ user }) {
   );
 }
 
-export default user;
+export default User;
