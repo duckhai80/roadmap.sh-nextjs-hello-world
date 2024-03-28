@@ -15,13 +15,15 @@ function NewsArticleList({ articles }) {
 
 export default NewsArticleList;
 
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   const response = await fetch("http://localhost:4000/news");
   const data = await response.json();
 
+  console.log(context.previewData);
+
   return {
     props: {
-      articles: data,
+      articles: context.preview ? [] : data,
     },
   };
 }
