@@ -1,8 +1,11 @@
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 function Home(props) {
   const router = useRouter();
+  const { data: session, status } = useSession();
+  console.log({ session, status });
 
   const handleClick = () => {
     router.push("/product");
@@ -17,7 +20,8 @@ function Home(props) {
       <Link href="/posts">Posts</Link>
       <button onClick={handleClick}>Place order</button>
 
-      <h1>Next JS pre-rendering</h1>
+      <hr />
+      <h1>{session ? `Hi, ${session.user.name}` : ""}</h1>
     </div>
   );
 }

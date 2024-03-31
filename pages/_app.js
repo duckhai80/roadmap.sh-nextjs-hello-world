@@ -6,6 +6,7 @@ import "styles/globals.css";
 import "styles/layout.css";
 import "@/components/Navbar.css";
 import Navbar from "../components/Navbar";
+import { SessionProvider } from "next-auth/react";
 // import "bootstrap/dist/css/bootstrap.min.css";
 
 const theme = {
@@ -25,12 +26,15 @@ export default function App({ Component, pageProps }) {
         <title>Khai Truong learn Nextjs</title>
         <meta name="description" content="Nice Try" />
       </Head>
-      {/* <Header /> */}
-      <ThemeProvider theme={theme}>
-        <Navbar />
-        <Component {...pageProps} />
-      </ThemeProvider>
-      <Footer />
+      <SessionProvider session={pageProps.session}>
+        <ThemeProvider theme={theme}>
+          {/* <Header /> */}
+
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
+        </ThemeProvider>
+      </SessionProvider>
     </>
   );
 }
