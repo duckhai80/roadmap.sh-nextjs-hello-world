@@ -1,6 +1,6 @@
 // import User from "../components/User";
 
-import User from "@/components/User";
+import User from "@/components/user";
 
 function UserList({ users }) {
   return (
